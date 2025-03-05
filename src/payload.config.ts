@@ -11,6 +11,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { roles } from './fields/roles'
+import { importExportPlugin } from '@payloadcms/plugin-import-export'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -51,7 +52,13 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
+    importExportPlugin({
+      overrideExportCollection: (collection) => {
+        collection.admin.group = 'System'
+        return collection
+      },
+      disableJobsQueue: true,
+    }),
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
   ],
 })

@@ -17,6 +17,7 @@
   "dependencies": {
     "@payloadcms/db-mongodb": "3.27.0-canary.7edf702",
     "@payloadcms/next": "3.27.0-canary.7edf702",
+    "@payloadcms/plugin-import-export": "3.27.0-canary.f0ea918",
     "@payloadcms/payload-cloud": "3.27.0-canary.7edf702",
     "@payloadcms/richtext-lexical": "3.27.0-canary.7edf702",
     "cross-env": "^7.0.3",
