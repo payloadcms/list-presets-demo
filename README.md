@@ -4,7 +4,7 @@ _This feature is released and installed as a canary version. It is not yet avail
 
 List Presets allow you to save and share filters, columns, and sort orders for your Collections. This is useful for reusing common or complex filtering patterns and column configurations across your team.
 
-Each preset is saved as a new record in the database under the `payload-list-presets` collection. This allows for an endless number of Preset configurations, where the users of your app define the presets that are most useful to them, rather than being hard coded into the Payload Config.
+Each preset is saved as a new record in the database under the `payload-list-presets` collection. This allows for an endless number of preset configurations, where the users of your app define the presets that are most useful to them, rather than being hard coded into the Payload Config.
 
 Within the Admin Panel, List Presets are applied to the List View. When enabled, new controls are displayed for you can manage presets. Once saved, these presets are available for future use by you and your team.
 
@@ -15,9 +15,7 @@ import type { CollectionConfig } from 'payload'
 
 export const MyCollection: CollectionConfig = {
   // ...
-  // highlight-start
   enableListPresets: true,
-  // highlight-end
 }
 ```
 
@@ -52,7 +50,6 @@ import { buildConfig } from 'payload'
 
 const config = buildConfig({
   // ...
-  // highlight-start
   listPresets: {
     // ...
     constraints: {
@@ -79,7 +76,6 @@ const config = buildConfig({
       },
     }
   },
-  // highlight-end
 })
 ```
 
@@ -94,7 +90,6 @@ import { buildConfig } from 'payload'
 
 const config = buildConfig({
   // ...
-  // highlight-start
   listPresets: {
     // ...
     access: {
@@ -112,11 +107,7 @@ const config = buildConfig({
       },
     },
   },
-  // highlight-end
 })
 ```
 
-<Banner type="warning">
-  **Note:**
-  Payload injects your custom fields into the `access[operation]` group, so your rules need to reflect this.
-</Banner>
+_Note: Payload injects your custom fields into the `access[operation]` group, so your rules need to reflect this._
