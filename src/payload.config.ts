@@ -23,7 +23,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  listPresets: {
+  queryPresets: {
     access: {
       read: ({ req: { user } }) => ({
         'access.read.roles': {

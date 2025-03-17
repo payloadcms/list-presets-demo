@@ -5,7 +5,7 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'text',
   },
-  enableListPresets: true,
+  enableQueryPresets: true,
   lockDocuments: false,
   fields: [
     {

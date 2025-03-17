@@ -54,6 +54,7 @@ export type SupportedTimezones =
   | 'Asia/Singapore'
   | 'Asia/Tokyo'
   | 'Asia/Seoul'
+  | 'Australia/Brisbane'
   | 'Australia/Sydney'
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
@@ -74,7 +75,7 @@ export interface Config {
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
-    'payload-list-presets': PayloadListPreset;
+    'payload-query-presets': PayloadQueryPreset;
   };
   collectionsJoins: {};
   collectionsSelect: {
@@ -86,7 +87,7 @@ export interface Config {
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
-    'payload-list-presets': PayloadListPresetsSelect<false> | PayloadListPresetsSelect<true>;
+    'payload-query-presets': PayloadQueryPresetsSelect<false> | PayloadQueryPresetsSelect<true>;
   };
   db: {
     defaultIDType: string;
@@ -372,9 +373,9 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-list-presets".
+ * via the `definition` "payload-query-presets".
  */
-export interface PayloadListPreset {
+export interface PayloadQueryPreset {
   id: string;
   title: string;
   isShared?: boolean | null;
@@ -551,9 +552,9 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-list-presets_select".
+ * via the `definition` "payload-query-presets_select".
  */
-export interface PayloadListPresetsSelect<T extends boolean = true> {
+export interface PayloadQueryPresetsSelect<T extends boolean = true> {
   title?: T;
   isShared?: T;
   access?:
@@ -583,17 +584,6 @@ export interface PayloadListPresetsSelect<T extends boolean = true> {
   where?: T;
   columns?: T;
   relatedCollection?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
-<<<<<<< Updated upstream
- * via the `definition` "payload-migrations_select".
- */
-export interface PayloadMigrationsSelect<T extends boolean = true> {
-  name?: T;
-  batch?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -630,8 +620,6 @@ export interface TaskCreateCollectionExport {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
-=======
->>>>>>> Stashed changes
  * via the `definition` "auth".
  */
 export interface Auth {
